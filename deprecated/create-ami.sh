@@ -71,7 +71,7 @@ create_img() {
 	mkdir -p ${_MNT}
 
 	pr_action "creating image container"
-	vmctl create ${_IMG} -s 8G
+	vmctl create  -s 8G ${_IMG}
 
 	# default disklabel automatic allocation with the following changes:
 	# - /usr/obj and /usr/src are removed
