@@ -188,13 +188,16 @@ create_img()
 	# 6.9 onwards has a compressed rd file
 	# bsd.rd: gzip compressed data, max compression, from Unix
 	#
+	set +e
 	file ${_bsdrd} | grep "gzip compressed data"
 	if [ $? = "0" ]; then
+		pr_title "decompressing bsd.rd"
 		# bsd.rd is compressed, decompress it so rdsetroot works
 		_compress=1
 		mv ${_bsdrd} ${_bsdrd}.gz
 		gunzip ${_bsdrd}.gz
 	fi
+	set -e
 
 	rdsetroot -x ${_bsdrd} ${_rdextract}
 	_vndev=$(vnconfig ${_rdextract})
@@ -207,6 +210,7 @@ create_img()
 	rdsetroot -x ${_bsdrd} ${_rdextract}
 
 	if [ "${_compress}" = "1" ]; then	
+		pr_title "recompressing bsd.rd"
 		# 6.9 onwards
 		gzip ${_bsdrd}
 		mv ${_bsdrd}.gz ${_bsdrd}
