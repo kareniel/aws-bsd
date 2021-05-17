@@ -2,6 +2,9 @@
 (This is a fork of code written by giants whose shoulders I'm standing on. 
 It successfully builds OpenBSD VMs on AWS for versions 6.5 to 6.9.)
 
+When you have logged into your AWS instance using ec2-user, you can become root
+using the "doas" command (e.g. doas -u root sh).
+
 
 # AWS-OpenBSD
 
