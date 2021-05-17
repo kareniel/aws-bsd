@@ -1,3 +1,8 @@
+
+(This is a fork of code written by giants whose shoulders I'm standing on. 
+It successfully builds OpenBSD VMs on AWS for versions 6.5 to 6.9.)
+
+
 # AWS-OpenBSD
 
 AWS playground for OpenBSD kids.  
