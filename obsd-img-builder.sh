@@ -314,8 +314,7 @@ pr_err()
 
 pr_title()
 {
-	local _line=$(printf "%80s" | tr ' ' '=')
-	echo "${_line}\n| ${@}\n${_line}"
+	echo "===> ${@}"
 }
 
 setup_vmd()
